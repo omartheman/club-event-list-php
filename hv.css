@@ -1,0 +1,24 @@
+html {
+  background-color: lightsteelblue;
+  font-family: Tahoma, sans-serif;
+}
+.admin-form {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0 10px 10px;
+  display: inline-block;
+}
+.event-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.event-table td, .event-table th {
+  border: 1px solid black;
+}
+.event-table-event-header {
+  width: 180px;
+}
+.event-table-date-header {
+  width: 100px;
+}
