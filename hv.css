@@ -2,11 +2,22 @@ html {
   background-color: lightsteelblue;
   font-family: Tahoma, sans-serif;
 }
+body {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
 .admin-form {
   border: 2px solid black;
-  border-radius: 10px;
   padding: 0 10px 10px;
   display: inline-block;
+  margin-bottom: 20px;
+}
+.admin-form-delete {
+  display: flex; 
+  justify-content: center;
+}
+.admin-form-delete-text{
+  padding: 5px;
 }
 .event-table {
   border: 1px solid black;
@@ -21,4 +32,7 @@ html {
 }
 .event-table-date-header {
   width: 100px;
+}
+.event-table-id {
+  width: 50px;
 }

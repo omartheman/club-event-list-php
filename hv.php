@@ -32,26 +32,28 @@
   $sql = "SELECT title, description, date FROM events";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
+    echo "
+      <table class='event-table'>
+        <tr>
+          <th class='event-table-event-header'>Event</th>
+          <th>Description</th>
+          <th class='event-table-date-header'>Date</th>
+        </tr>";
     while($row = $result->fetch_assoc()) {
-      echo "<table class='event-table'>
-              <tr>
-                <th class='event-table-event-header'>Event</th>
-                <th>Description</th>
-                <th class='event-table-date-header'>Date</th>
-              </tr>
-              <tr>
-                <td>"
-                  . $row["title"] . 
-                "</td>
-                <td>"
-                  . $row["description"] . 
-                "</td>
-                <td>"
-                  . $row["date"] .
-                "</td>
-              </tr> 
-            </table>";
+      echo "
+        <tr>
+          <td>"
+            . $row["title"] . 
+          "</td>
+          <td>"
+            . $row["description"] . 
+          "</td>
+          <td>"
+            . $row["date"] .
+          "</td>
+        </tr>";
       } 
+      echo "</table>";
   } else {
     echo "0 results";
   }
