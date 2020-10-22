@@ -8,24 +8,45 @@
   <title>Document</title>
 </head>
 <body class='container'>
-<h1>Admin Page</h1>
 
-<h2>Code Self Study: Future Events</h2>
 
-<div>
-  <a href="/hv/hv.php">Back to Homepage</a>
+<div class="row pb-4">
+  <img class="img-fluid" src="coding-banner.jpg" alt="Coding Banner">
 </div>
 
-<form class='admin-form' method="POST" action="addEvent.php" autocomplete='off'>
-  <h2>Add Event</h2>
-  <label for="title">Title</label><br/>
-  <input type="text" name="title" /><br />
-  <label for="description">Description</label><br/>
-  <input type="text" name="description" /><br />
-  <label for="date">Date</label><br/>
-  <input type="date" name="date" /> <br />
-  <input type="submit" name="submit" id="submit" value="Go" />
-</form>
+<a href="/hv/hv.php">
+  <div class='btn btn-primary mb-3 float-right'>
+    Back to Homepage
+  </div>
+</a>
+
+<h1>Admin Page</h1>
+
+<div class="pb-4 text-center">
+  <form class='admin-form w-100' method="POST" action="addEvent.php" autocomplete='off'>
+    <h2 class="text-left pt-3">Add Event</h2>
+
+    <div>
+      <div class="p-2 text-left">
+        <label for="title">Title</label><br/>
+        <textarea class="w-100" rows="1" cols="50" type="text" name="title"></textarea><br />
+      </div>
+      <div class='p-2 text-left'>
+        <label for="description">Description</label><br/>
+        <textarea class="w-100" rows="3" cols="50" type="text" name="description" /></textarea><br />
+      </div>
+      <div class='p-2 mb-2 text-left'>
+        <label for="date">Date</label><br/>
+        <input class="w-100" type="date" name="date" /> <br />
+      </div>
+    </div>
+    <div class='pb-2 w-100 text-center'>
+      <input class='w-50 btn btn-success' type="submit" name="submit" id="submit" value="Go" />
+    </div>
+  </form>
+</div>
+
+<h2 class="mb-3">Code Self Study: Future Events</h2>
 
 <?php
 
@@ -36,18 +57,19 @@
     die("Connection failed: " . $conn->connect_error);
   } 
 
-  $sql = "SELECT title, description, date, id FROM events";
+  $sql = "SELECT title, description, date, id FROM events ORDER BY date ASC";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     echo "
-      <table class='event-table'>
-        <tr>
-          <th class='event-table-event-header'>Event</th>
-          <th>Description</th>
-          <th class='event-table-date-header'>Date</th>
-          <th class='event-table-id'>Id</th>
-          <th>Delete?</th>
-        </tr>";
+      <div class='pb-4'>
+        <table class='event-table'>
+          <tr>
+            <th class='event-table-event-header'>Event</th>
+            <th>Description</th>
+            <th class='event-table-date-header'>Date</th>
+            <th class='event-table-id'>Id</th>
+            <th>Delete?</th>
+          </tr>";
     while($row = $result->fetch_assoc()) 
     {
       echo "
@@ -66,13 +88,20 @@
           "</td>
           <td>
             <form class='admin-form-delete' method='POST' action='deleteEvent.php'>
-              <span class='admin-form-delete-text'>DELETE EVENT:</span>
-              <input type='submit' name='delete' id='delete' value='" . $row['id'] . "' />
+              <div class='admin-form-delete-text'><strong>DELETE EVENT:</strong> " . $row['title'] . "</div>
+              <div class='mb-2'>(WARNING: This action cannot be undone.)</div>
+              <div class='btn btn-danger'>
+                <label for='delete'>Delete event #</label>
+                <input class='w-100 btn btn-danger' type='submit' name='delete' id='delete' value='" . $row['id'] . "' />
+              </div>
             </form>
           </td>
         </tr>";
     } 
-    echo "</table>";
+    echo "
+        </table>
+      </div>    
+    ";
   } else {
     echo "0 results";
   }

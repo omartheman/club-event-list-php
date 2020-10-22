@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $pass = $_POST['pass'];
 
-  if($pass == "p") 
+  if($pass == "i-like-turtles") 
   {
     header("location: /hv/admin.php");
   } else 
