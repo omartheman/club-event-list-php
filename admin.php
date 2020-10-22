@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class='pb-2 w-100 text-center'>
-      <input class='w-50 btn btn-success' type="submit" name="submit" id="submit" value="Go" />
+      <input class='w-50 btn btn-success' type="submit" name="submit" id="submit" value="Add Event" />
     </div>
   </form>
 </div>
@@ -91,7 +91,7 @@
               <div class='admin-form-delete-text'><strong>DELETE EVENT:</strong> " . $row['title'] . "</div>
               <div class='mb-2'>(WARNING: This action cannot be undone.)</div>
               <div class='btn btn-danger'>
-                <label for='delete'>Delete event #</label>
+                <label for='delete'>Delete Event #</label>
                 <input class='w-100 btn btn-danger' type='submit' name='delete' id='delete' value='" . $row['id'] . "' />
               </div>
             </form>

@@ -66,7 +66,11 @@
   <div class='pb-5'>
     <form class='admin-form' method="POST" action="secure.php">
       <h2 class='mb-2'>Login to Admin Page</h2>
-      <p class='mb-2'>( Password: "i-like-turtles" )</p>
+      <p class='mb-2'>( Username: "ringo", Password: "turtles" )</p>
+      <div class="mb-2">
+        Username:
+        <input type="text" name="user" /><br />
+      </div>
       <div class="mb-2">
         Password:
         <input type="password" name="pass" /><br />
