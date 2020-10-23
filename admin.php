@@ -57,7 +57,7 @@
     die("Connection failed: " . $conn->connect_error);
   } 
 
-  $sql = "SELECT title, description, date, id FROM events ORDER BY date ASC";
+  $sql = "SELECT title, description, date, id FROM events WHERE date >= curdate() ORDER BY date ASC";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     echo "
