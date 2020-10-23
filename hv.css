@@ -10,8 +10,21 @@ body {
 table td, table th {
   padding: 10px;
 }
+@media (max-width: 770px) {
+  .admin-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 .admin-form-delete {
   width: 180px;
+}
+@media (max-width: 770px) {
+  .admin-form-delete {
+    width: auto;
+  }
 }
 .admin-form-delete-text{
   padding: 5px;
