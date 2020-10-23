@@ -14,7 +14,7 @@
   <img class="img-fluid" src="coding-banner.jpg" alt="Coding Banner">
 </div>
 
-<a href="/hv/hv.php">
+<a href="index.php">
   <div class='btn btn-primary mb-3 float-right'>
     Back to Homepage
   </div>

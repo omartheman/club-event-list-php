@@ -23,7 +23,7 @@
   $sql = "DELETE FROM events WHERE id='$id'";
 
   if ($conn->query($sql) === TRUE) {
-    header('location: /hv/admin.php');
+    header('location: admin.php');
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

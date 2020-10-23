@@ -19,7 +19,7 @@
 
 
   if ($conn->query($sql) === TRUE) {
-    header('location: /hv/admin.php');
+    header('location: admin.php');
     // echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

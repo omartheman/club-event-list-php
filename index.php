@@ -69,11 +69,11 @@
       <p class='mb-2'>( Username: "ringo", Password: "turtles" )</p>
       <div class="mb-2">
         Username:
-        <input type="text" name="user" /><br />
+        <input type="text" name="user" value="ringo" /><br />
       </div>
       <div class="mb-2">
         Password:
-        <input type="password" name="pass" /><br />
+        <input type="password" name="pass" value="turtles" /><br />
       </div>
       <input class="btn btn-primary" type="submit" name="submit" value="Log me in to Admin!" />
     </form>

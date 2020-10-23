@@ -6,12 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if($user == "ringo" && $pass == "turtles") 
   {
-    header("location: /code_club/admin.php");
+    header("location: admin.php");
   } else 
   {
     if(isset($_POST))
     { 
-      header('location: /code_club/hv.php');
+      header('location: index.php');
     }
   }
 }
