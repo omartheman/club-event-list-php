@@ -9,16 +9,14 @@ body {
 table td, table th {
   padding: 10px;
 }
-.admin-form {
-  border: 2px solid black;
-  padding: 0 10px 10px;
-  display: inline-block;
-}
 .admin-form-delete {
   width: 180px;
 }
 .admin-form-delete-text{
   padding: 5px;
+}
+.clearfix {
+  clear: both;
 }
 .event-table {
   border: 1px solid black;

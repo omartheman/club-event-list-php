@@ -1,3 +1,6 @@
+<?php
+if ( session_status() !== 2 ) session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +12,51 @@
 </head>
 <body class="container">
 
-<div class="row pb-4">
+<div class="row">
   <img class="img-fluid" src="coding-banner.jpg" alt="Coding Banner">
 </div>
-<h1>Code Self Study: Future Events</h1>
+
+<div class='row float-right mb-3'>
+  <div class='d-block ml-auto border p-3'>
+
+    <?php
+      if (!isset($_SESSION['username'])) 
+      { ?>
+        <div class='mb-2 mr-2 ml-auto'>
+          <h4 class='mb-2'>Login to Admin Page</h4>
+          <p class='mb-2'>( Username: "ringo", Password: "turtles" )</p>
+        </div>
+        <form class='admin-form ml-auto' method="POST" action="secure.php">
+          <div class="mr-2 mb-2">
+          Username:
+          </div>
+          <input class="mr-2 mb-2" type="text" name="user" value="" />
+          <div class='mr-2 mb-2'>
+            Password:
+          </div>
+          <input class="mr-2 mb-2" type="password" name="pass" value="" />
+      <?php
+        }
+      ?>
+
+      <div>
+         <?php
+          if (isset($_SESSION['username'])) 
+          { ?>
+              <a class='btn btn-warning mb-2 mr-2' href="logout.php">Log Out</a>
+            <?php
+          } else {
+            ?>
+              <input class="btn btn-primary mr-2 mb-2" type="submit" name="submit" value="Log me in to Admin!" />
+            <?php
+          }
+            ?>
+      </div>
+    </form>
+  </div>
+</div>
+
+<h1 class='d-inline-block mt-4 float-left'>Code Self Study: Future Events</h1>
 
 
   <?php
@@ -24,11 +68,11 @@
       die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "SELECT title, description, date FROM events ORDER BY date ASC";
+    $sql = "SELECT title, description, date FROM events WHERE date >= curdate() ORDER BY date ASC";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       echo "
-        <div class='pb-4'>
+        <div class='pb-4 clearfix'>
           <table class='event-table'>
             <tr>
               <th class='event-table-event-header'>Event</th>
@@ -63,21 +107,6 @@
   <?php
   include 'secure.php';
   ?>
-  <div class='pb-5'>
-    <form class='admin-form' method="POST" action="secure.php">
-      <h2 class='mb-2'>Login to Admin Page</h2>
-      <p class='mb-2'>( Username: "ringo", Password: "turtles" )</p>
-      <div class="mb-2">
-        Username:
-        <input type="text" name="user" value="ringo" /><br />
-      </div>
-      <div class="mb-2">
-        Password:
-        <input type="password" name="pass" value="turtles" /><br />
-      </div>
-      <input class="btn btn-primary" type="submit" name="submit" value="Log me in to Admin!" />
-    </form>
-  </div>
 </div> <!-- div class=container -->
 
 </body>
