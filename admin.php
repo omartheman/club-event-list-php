@@ -121,7 +121,7 @@ if (!isset($_SESSION['username']))
             "</td>
             <td>
               <form class='admin-form-delete' method='POST' action='deleteEvent.php'>
-                <div class='admin-form-delete-text'><strong>DELETE EVENT:</strong> " . $row['title'] . "</div>
+                <div class='admin-form-delete-text'><strong>DELETE EVENT: \"" . $row['title'] . "\"</strong></div>
                 <div class='mb-2'>(WARNING: This action cannot be undone.)</div>
                 <div class='btn btn-danger'>
                   <label for='delete'>Delete Event #</label>
