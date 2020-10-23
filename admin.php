@@ -123,10 +123,8 @@ if (!isset($_SESSION['username']))
               <form class='admin-form-delete' method='POST' action='deleteEvent.php'>
                 <div class='admin-form-delete-text'><strong>DELETE EVENT: \"" . $row['title'] . "\"</strong></div>
                 <div class='mb-2'>(WARNING: This action cannot be undone.)</div>
-                <div class='btn btn-danger'>
-                  <label for='delete'>Delete Event #</label>
-                  <input class='w-100 btn btn-danger' type='submit' name='delete' id='delete' value='" . $row['id'] . "' />
-                </div>
+                <input style='display:none' type='number' name='id' value='" . $row['id'] . "' />
+                <input class='w-100 btn btn-danger' type='submit' name='submit' id='submit' value='DELETE Event #" . $row['id'] . "' />
               </form>
             </td>
           </tr>";

@@ -13,9 +13,9 @@
     die("Connection failed: " . $conn->connect_error);
   } 
 
-  if(isset($_POST['delete']))
+  if(isset($_POST['submit']))
   {
-    $id = $_POST['delete'];
+    $id = $_POST['id'];
   }
   
   console_log( $id ); // [1,2,3]
