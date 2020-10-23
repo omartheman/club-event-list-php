@@ -17,8 +17,7 @@ if ( session_status() !== 2 ) session_start();
 </div>
 
 <div class='row float-right mb-3'>
-  <div class='d-block ml-auto border p-3'>
-
+  <div class='d-block ml-auto <?php if (!isset($_SESSION['username'])) { ?>border p-3 <?php } ?>'>
     <?php
       if (!isset($_SESSION['username'])) 
       { ?>
@@ -43,7 +42,9 @@ if ( session_status() !== 2 ) session_start();
          <?php
           if (isset($_SESSION['username'])) 
           { ?>
-              <a class='btn btn-warning mb-2 mr-2' href="logout.php">Log Out</a>
+              
+              <a href="admin.php" class="btn btn-primary mt-2 mr-2 mb-2">Return to Admin Page</a>
+              <a class='btn btn-warning mb-2 mr-2 mt-2' href="logout.php">Log Out</a>
             <?php
           } else {
             ?>
