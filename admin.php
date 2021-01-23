@@ -15,7 +15,7 @@ if (!isset($_SESSION['username']))
 {
   //not logged in
   // echo('admin');
-  header('Location: index.php');
+  header('Location: club.php');
   console_log($_SESSION['username']);
   console_log('work');
   exit();
@@ -43,7 +43,7 @@ if (!isset($_SESSION['username']))
     <img class="img-fluid" src="coding-banner.jpg" alt="Coding Banner">
   </div>
 
-  <a href="index.php">
+  <a href="club.php">
     <div class='btn btn-primary mb-3 float-right'>
       Back to Homepage
     </div>

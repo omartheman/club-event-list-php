@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   {
     if(isset($_POST))
     { 
-      header('location: index.php');
+      header('location: club.php');
     }
   }
 }
